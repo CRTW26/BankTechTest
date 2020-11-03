@@ -27,6 +27,10 @@ class Account {
     transaction['type'] = type;
     transaction['amount'] = amount;
     transaction['balance'] = this.balance;
+    this.addToHistory(transaction);
+  }
+
+  addToHistory(transaction) {
     this.transactionHistory.push(transaction);
   }
 
