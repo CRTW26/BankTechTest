@@ -9,29 +9,29 @@ describe('Account', function() {
   });
 
   it('can deposit into account', function() {
-    account.deposit(10.00);
+    createDeposit();
     expect(account.showBalance()).toEqual(10.00);
   });
 
   it('can withdraw from the account', function() {
-    account.deposit(10.00);
+    createDeposit();
     account.withdraw(5.00);
     expect(account.showBalance()).toEqual(5.00);
   });
 
   it('calls .createTransaction to store details of transaction when deposit is made', function() {
     spyOn(account, 'createTransaction');
-    account.deposit(10.00);
+    createDeposit();
     expect(account.createTransaction).toHaveBeenCalled();
   });
 
   it('stores a history of previous transactions', function() {
-    account.deposit(10.00);
+    createDeposit();
     expect(account.transactionHistory.length).toEqual(1);
   });
 
   it('transaction object stores: date, amount, type and balance', function() {
-    account.deposit(10.00);
+    createDeposit();
     expect(account.getLatestTransaction()).toEqual({
       date: '03/11/2020',
       type: 'Deposit',
