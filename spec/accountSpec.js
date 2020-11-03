@@ -13,4 +13,10 @@ describe('Account', function() {
     expect(account.showBalance()).toEqual(10.00);
   });
 
+  it('can withdraw from the account', function() {
+    account.deposit(10.00);
+    account.withdraw(5.00);
+    expect(account.showBalance()).toEqual(5.00);
+  });
+
 });
