@@ -22,9 +22,9 @@ describe('Account', function() {
   });
 
   it('calls .createTransaction to store details of transaction when deposit is made', function() {
-    spyOn(account, 'createTransaction');
+    spyOn(account, '_createTransaction');
     createDeposit();
-    expect(account.createTransaction).toHaveBeenCalled();
+    expect(account._createTransaction).toHaveBeenCalled();
   });
 
   it('stores a history of previous transactions', function() {

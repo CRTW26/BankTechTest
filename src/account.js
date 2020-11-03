@@ -13,19 +13,14 @@ class Account {
     if (typeof(amount) != 'number') return 'Invalid input';
     this.balance += amount;
     const transactionType = 'Deposit';
-    this.createTransaction(amount, transactionType, this.balance, date);
+    this._createTransaction(amount, transactionType, this.balance, date);
   }
 
   withdraw(amount, date = new Date().toLocaleDateString()) {
     if (typeof(amount) != 'number') return 'Invalid input';
     this.balance -= amount;
     const transactionType = 'Withdrawal';
-    this.createTransaction(amount, transactionType, this.balance, date);
-  }
-
-  createTransaction(amount, type, balance, date) {
-    const transaction = new this.transaction(amount, type, balance, date);
-    this._addToHistory(transaction);
+    this._createTransaction(amount, transactionType, this.balance, date);
   }
 
   getLatestTransaction() {
@@ -45,6 +40,11 @@ class Account {
 
   _addToHistory(transaction) {
     this.transactionHistory.push(transaction);
+  }
+
+  _createTransaction(amount, type, balance, date) {
+   const transaction = new this.transaction(amount, type, balance, date);
+   this._addToHistory(transaction);
   }
 
   _formatStatement() {
