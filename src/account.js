@@ -40,7 +40,7 @@ class Account {
 
   formatStatement() {
     const output = ['date  ||  credit  ||  debit ||  balance'];
-    for (let i = 0; i < this.transactionHistory.length; i++) {
+    for (let i = this.transactionHistory.length - 1; i >= 0; i--) {
       if (this.transactionHistory[i].type === 'Deposit') {
         const formattedTransaction = `${this.transactionHistory[i].date} || ${this.transactionHistory[i].amount} || || ${this.transactionHistory[i].balance}`;
         output.push(formattedTransaction);

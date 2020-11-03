@@ -58,4 +58,16 @@ describe('Account', function() {
     ]);
   });
 
+  it('formats statement in reverse chronological order', function() {
+    createDeposit();
+    createDeposit();
+    account.withdraw(5.00);
+    expect(account.formatStatement()).toEqual([
+     'date  ||  credit  ||  debit ||  balance',
+     '02/11/2020 || || 5.00 || 15.00',
+     '02/11/2020 || 10.00 || || 20.00',
+     '02/11/2020 || 10.00 || || 10.00'
+    ]);
+  });
+
 });
