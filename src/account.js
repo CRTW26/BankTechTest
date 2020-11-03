@@ -5,7 +5,7 @@ class Account {
   }
 
   showBalance() {
-    return this.balance;
+    return this.balance.toFixed(2);
   }
 
   deposit(amount) {
@@ -24,8 +24,8 @@ class Account {
     const transaction = {};
     transaction.date = new Date().toLocaleDateString();
     transaction.type = type;
-    transaction.amount = amount;
-    transaction.balance = this.balance;
+    transaction.amount = amount.toFixed(2);
+    transaction.balance = this.balance.toFixed(2);
     this.addToHistory(transaction);
   }
 
@@ -36,5 +36,16 @@ class Account {
   getLatestTransaction() {
     const last = this.transactionHistory.pop();
     return last;
+  }
+
+  formatStatement() {
+    const output = ['date  ||  credit  ||  debit ||  balance'];
+    for (let i = 0; i < this.transactionHistory.length; i++) {
+      if (this.transactionHistory[i].type === 'Deposit') {
+        const formattedTransaction = `${this.transactionHistory[i].date} || ${this.transactionHistory[i].amount} || || ${this.transactionHistory[i].balance}`;
+        output.push(formattedTransaction);
+      }
+    }
+    return output;
   }
 }
