@@ -2,6 +2,7 @@ class Account {
 
   constructor() {
     this.balance = 0.00;
+    this.transactionHistory= [];
   }
 
   showBalance() {
@@ -19,7 +20,7 @@ class Account {
   }
 
   createTransaction() {
-
+    this.transactionHistory.push('transaction')
   };
 
 }

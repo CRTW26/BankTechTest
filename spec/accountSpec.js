@@ -25,4 +25,9 @@ describe('Account', function() {
     expect(account.createTransaction).toHaveBeenCalled();
   });
 
+  it('stores a history of previous transactions', function() {
+    account.deposit(10.00);
+    expect(account.transactionHistory.length).toEqual(1);
+  });
+
 });
