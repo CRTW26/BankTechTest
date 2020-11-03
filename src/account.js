@@ -1,8 +1,9 @@
 class Account {
-  constructor(transaction = Transaction) {
+  constructor(transaction = Transaction, formatter = StatementFormatter) {
     this.balance = 0.00;
     this.transactionHistory = [];
     this.transaction = transaction;
+    this.formatter = formatter;
   }
 
   showBalance() {
@@ -29,7 +30,7 @@ class Account {
   }
 
   printStatement() {
-    const statement = this._formatStatement();
+    const statement = this._generateStatement();
     for (let i = 0; i < statement.length; i++) {
       console.log(statement[i]);
     }
@@ -55,25 +56,10 @@ class Account {
     return typeof(amount) != 'number';
   }
 
-  _formatStatement() {
-    const statementArray = ['date  ||  credit  ||  debit ||  balance'];
-    for (let i = this.transactionHistory.length - 1; i >= 0; i--) {
-      if (this.transactionHistory[i].type === 'Deposit') {
-        statementArray.push(this._formatDeposit(this.transactionHistory[i]));
-      } else {
-        statementArray.push(this._formatWithdrawal(this.transactionHistory[i]));
-      }
-    }
-    return statementArray;
+  _generateStatement() {
+    const statementFormatter = new this.formatter();
+    const formattedStatement = statementFormatter.formatStatement(this.transactionHistory);
+    return formattedStatement;
   }
 
-  _formatDeposit(deposit) {
-    const formattedTransaction = `${deposit.date} || ${deposit.amount} || || ${deposit.balance}`; 
-    return formattedTransaction;
-  }
-
-  _formatWithdrawal(withdrawal) {
-    const formattedTransaction = `${withdrawal.date} || || ${withdrawal.amount} || ${withdrawal.balance}`;
-    return formattedTransaction;
-  }
 }
