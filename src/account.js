@@ -21,8 +21,8 @@ class Account {
     this.createTransaction(amount, transactionType, this.balance);
   }
 
-  createTransaction(amount, type, balance) {
-    const transaction = new this.transaction(amount, type, balance)
+  createTransaction(amount, type, balance, date = new Date().toLocaleDateString()) {
+    const transaction = new this.transaction(amount, type, balance, date);
     this._addToHistory(transaction);
   }
 
@@ -32,7 +32,7 @@ class Account {
   }
 
   printStatement() {
-    let statement = this._formatStatement();
+    const statement = this._formatStatement();
     for (let i = 0; i < statement.length; i++) {
       console.log(statement[i]);
     }
@@ -40,7 +40,7 @@ class Account {
   }
 
   // helper methods
-  
+
   _addToHistory(transaction) {
     this.transactionHistory.push(transaction);
   }
@@ -58,5 +58,4 @@ class Account {
     }
     return output;
   }
-  
 }
