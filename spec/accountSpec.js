@@ -19,4 +19,10 @@ describe('Account', function() {
     expect(account.showBalance()).toEqual(5.00);
   });
 
+  it('calls .createTransaction to store details of transaction when deposit is made', function() {
+    spyOn(account, 'createTransaction');
+    account.deposit(10.00);
+    expect(account.createTransaction).toHaveBeenCalled();
+  });
+
 });

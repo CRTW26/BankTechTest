@@ -10,10 +10,16 @@ class Account {
 
   deposit(amount) {
     this.balance += amount;
+    this.createTransaction();
   }
 
   withdraw(amount) {
     this.balance -= amount;
+    this.createTransaction();
   }
+
+  createTransaction() {
+
+  };
 
 }
