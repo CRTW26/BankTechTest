@@ -44,6 +44,9 @@ class Account {
       if (this.transactionHistory[i].type === 'Deposit') {
         const formattedTransaction = `${this.transactionHistory[i].date} || ${this.transactionHistory[i].amount} || || ${this.transactionHistory[i].balance}`;
         output.push(formattedTransaction);
+      } else {
+        const formattedTransaction = `${this.transactionHistory[i].date} || || ${this.transactionHistory[i].amount} || ${this.transactionHistory[i].balance}`;
+        output.push(formattedTransaction);
       }
     }
     return output;

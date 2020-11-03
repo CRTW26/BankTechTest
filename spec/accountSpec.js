@@ -44,10 +44,18 @@ describe('Account', function() {
 
   it('returns formatted output when printing statement with deposit', function() {
     createDeposit();
-    expect(account.formatStatement()).toEqual( [
+    expect(account.formatStatement()).toEqual([
       'date  ||  credit  ||  debit ||  balance',
       '02/11/2020 || 10.00 || || 10.00'
-    ])
+    ]);
+  });
+
+  it('returns formatted output when printing statement with withdrawals', function() {
+    account.withdraw(10.00);
+    expect(account.formatStatement()).toEqual([
+      'date  ||  credit  ||  debit ||  balance',
+      '02/11/2020 || || 10.00 || -10.00'
+    ]);
   });
 
 });
