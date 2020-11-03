@@ -1,7 +1,8 @@
 class Account {
-  constructor() {
+  constructor(transaction = Transaction) {
     this.balance = 0.00;
     this.transactionHistory = [];
+    this.transaction = transaction;
   }
 
   showBalance() {
@@ -21,7 +22,7 @@ class Account {
   }
 
   createTransaction(amount, type, balance) {
-    const transaction = new Transaction(amount, type, balance)
+    const transaction = new this.transaction(amount, type, balance)
     this._addToHistory(transaction);
   }
 
