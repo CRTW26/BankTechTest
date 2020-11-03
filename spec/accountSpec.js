@@ -34,7 +34,7 @@ describe('Account', function() {
 
   it('returns formatted output when printing statement with deposit', function() {
     createDeposit();
-    expect(account.formatStatement()).toEqual([
+    expect(account._formatStatement()).toEqual([
       'date  ||  credit  ||  debit ||  balance',
       '02/11/2020 || 10.00 || || 10.00'
     ]);
@@ -42,7 +42,7 @@ describe('Account', function() {
 
   it('returns formatted output when printing statement with withdrawals', function() {
     account.withdraw(10.00);
-    expect(account.formatStatement()).toEqual([
+    expect(account._formatStatement()).toEqual([
       'date  ||  credit  ||  debit ||  balance',
       '02/11/2020 || || 10.00 || -10.00'
     ]);
@@ -52,7 +52,7 @@ describe('Account', function() {
     createDeposit();
     createDeposit();
     account.withdraw(5.00);
-    expect(account.formatStatement()).toEqual([
+    expect(account._formatStatement()).toEqual([
      'date  ||  credit  ||  debit ||  balance',
      '02/11/2020 || || 5.00 || 15.00',
      '02/11/2020 || 10.00 || || 20.00',

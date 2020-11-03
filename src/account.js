@@ -22,11 +22,7 @@ class Account {
 
   createTransaction(amount, type, balance) {
     const transaction = new Transaction(amount, type, balance)
-    this.addToHistory(transaction);
-  }
-
-  addToHistory(transaction) {
-    this.transactionHistory.push(transaction);
+    this._addToHistory(transaction);
   }
 
   getLatestTransaction() {
@@ -34,7 +30,20 @@ class Account {
     return last;
   }
 
-  formatStatement() {
+  printStatement() {
+    let statement = this._formatStatement();
+    for (let i = 0; i < statement.length; i++) {
+      console.log(statement[i]);
+    }
+  }
+
+  // helper methods
+  
+  _addToHistory(transaction) {
+    this.transactionHistory.push(transaction);
+  }
+
+  _formatStatement() {
     const output = ['date  ||  credit  ||  debit ||  balance'];
     for (let i = this.transactionHistory.length - 1; i >= 0; i--) {
       if (this.transactionHistory[i].type === 'Deposit') {
@@ -47,11 +56,5 @@ class Account {
     }
     return output;
   }
-
-  printStatement() {
-    let statement = this.formatStatement();
-    for (let i = 0; i < statement.length; i++) {
-      console.log(statement[i]);
-    }
-  }
+  
 }
