@@ -1,5 +1,9 @@
 # Bank Tech Test
 
+A program that allows a user to interact with a mock bank account, depositing, withdrawing and printing statements. 
+
+![image](https://user-images.githubusercontent.com/67931571/98008553-85d8d700-1dec-11eb-8fff-6a6538a5e0b0.png)
+
 ## How to use
 
 - Clone this repository
