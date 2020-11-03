@@ -60,4 +60,12 @@ describe('Account', function() {
     ]);
   });
 
+  it('prints formatted statement to console', function() {
+    spyOn(console, 'log')
+    createDeposit();
+    createDeposit();
+    account.printStatement();
+    expect(console.log).toHaveBeenCalled();
+  });
+
 });
