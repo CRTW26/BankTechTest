@@ -10,12 +10,14 @@ class Account {
   }
 
   deposit(amount, date = new Date().toLocaleDateString()) {
+    if (typeof(amount) != 'number') return 'Invalid input';
     this.balance += amount;
     const transactionType = 'Deposit';
     this.createTransaction(amount, transactionType, this.balance, date);
   }
 
   withdraw(amount, date = new Date().toLocaleDateString()) {
+    if (typeof(amount) != 'number') return 'Invalid input';
     this.balance -= amount;
     const transactionType = 'Withdrawal';
     this.createTransaction(amount, transactionType, this.balance, date);

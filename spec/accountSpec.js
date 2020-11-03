@@ -68,4 +68,14 @@ describe('Account', function() {
     expect(console.log).toHaveBeenCalled();
   });
 
+  // Testing for invalid input
+
+  it('throws error if deposit amount is not a number', function() {
+    expect(account.deposit('hello')).toEqual('Invalid input');
+  });
+
+   it('throws error if withdrawal amount is not a number', function() {
+    expect(account.withdraw('hello')).toEqual('Invalid input');
+  });
+
 });
