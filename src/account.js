@@ -8,4 +8,8 @@ class Account {
     return this.balance;
   }
 
+  deposit(amount) {
+    this.balance += amount;
+  }
+
 }
