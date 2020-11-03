@@ -36,6 +36,7 @@ class Account {
     for (let i = 0; i < statement.length; i++) {
       console.log(statement[i]);
     }
+    return statement;
   }
 
   // helper methods
