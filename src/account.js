@@ -10,14 +10,14 @@ class Account {
   }
 
   deposit(amount, date = this._formatDate()) {
-    if (typeof(amount) != 'number') return 'Invalid input';
+    if (this._isInvalidInput(amount)) return 'Invalid input';
     this.balance += amount;
     const transactionType = 'Deposit';
     this._createTransaction(amount, transactionType, this.balance, date);
   }
 
   withdraw(amount, date = this._formatDate()) {
-    if (typeof(amount) != 'number') return 'Invalid input';
+    if (this._isInvalidInput(amount)) return 'Invalid input';
     this.balance -= amount;
     const transactionType = 'Withdrawal';
     this._createTransaction(amount, transactionType, this.balance, date);
@@ -48,7 +48,11 @@ class Account {
   }
 
   _formatDate() {
-    new Date().toLocaleDateString()
+    new Date().toLocaleDateString();
+  }
+
+  _isInvalidInput(amount) {
+    return typeof(amount) != 'number';
   }
 
   _formatStatement() {
