@@ -51,4 +51,11 @@ class Account {
     }
     return output;
   }
+
+  printStatement() {
+    let statement = this.formatStatement();
+    for (let i = 0; i < statement.length; i++) {
+      console.log(statement[i]);
+    }
+  }
 }
