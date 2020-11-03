@@ -11,21 +11,17 @@ class Account {
   deposit(amount) {
     this.balance += amount;
     const transactionType = 'Deposit';
-    this.createTransaction(amount, transactionType);
+    this.createTransaction(amount, transactionType, this.balance);
   }
 
   withdraw(amount) {
     this.balance -= amount;
     const transactionType = 'Withdrawal';
-    this.createTransaction(amount, transactionType);
+    this.createTransaction(amount, transactionType, this.balance);
   }
 
-  createTransaction(amount, type) {
-    const transaction = {};
-    transaction.date = new Date().toLocaleDateString();
-    transaction.type = type;
-    transaction.amount = amount.toFixed(2);
-    transaction.balance = this.balance.toFixed(2);
+  createTransaction(amount, type, balance) {
+    const transaction = new Transaction(amount, type, balance)
     this.addToHistory(transaction);
   }
 

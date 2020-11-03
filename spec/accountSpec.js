@@ -32,16 +32,6 @@ describe('Account', function() {
     expect(account.transactionHistory.length).toEqual(1);
   });
 
-  it('transaction object stores: date, amount, type and balance', function() {
-    createDeposit();
-    expect(account.getLatestTransaction()).toEqual({
-      date: '02/11/2020',
-      type: 'Deposit',
-      amount: '10.00',
-      balance: '10.00'
-    });
-  });
-
   it('returns formatted output when printing statement with deposit', function() {
     createDeposit();
     expect(account.formatStatement()).toEqual([
