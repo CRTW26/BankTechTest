@@ -9,19 +9,19 @@ class Account {
     return this.balance.toFixed(2);
   }
 
-  deposit(amount) {
+  deposit(amount, date = new Date().toLocaleDateString()) {
     this.balance += amount;
     const transactionType = 'Deposit';
-    this.createTransaction(amount, transactionType, this.balance);
+    this.createTransaction(amount, transactionType, this.balance, date);
   }
 
-  withdraw(amount) {
+  withdraw(amount, date = new Date().toLocaleDateString()) {
     this.balance -= amount;
     const transactionType = 'Withdrawal';
-    this.createTransaction(amount, transactionType, this.balance);
+    this.createTransaction(amount, transactionType, this.balance, date);
   }
 
-  createTransaction(amount, type, balance, date = new Date().toLocaleDateString()) {
+  createTransaction(amount, type, balance, date) {
     const transaction = new this.transaction(amount, type, balance, date);
     this._addToHistory(transaction);
   }
