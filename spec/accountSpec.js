@@ -1,6 +1,8 @@
 describe('Account', function() {
 
   beforeEach(function() {
+    let today = new Date(2020, 10, 02);
+    jasmine.clock().mockDate(today);
     account = new Account;
   });
 
@@ -33,7 +35,7 @@ describe('Account', function() {
   it('transaction object stores: date, amount, type and balance', function() {
     createDeposit();
     expect(account.getLatestTransaction()).toEqual({
-      date: '03/11/2020',
+      date: '02/11/2020',
       type: 'Deposit',
       amount: 10.00,
       balance: 10.00
