@@ -30,4 +30,14 @@ describe('Account', function() {
     expect(account.transactionHistory.length).toEqual(1);
   });
 
+  it('transaction object stores: date, amount, type and balance', function() {
+    account.deposit(10.00);
+    expect(account.getLatestTransaction()).toEqual({
+      date: '03/11/2020',
+      type: 'Deposit',
+      amount: 10.00,
+      balance: 10.00
+    });
+  });
+
 });
