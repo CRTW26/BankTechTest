@@ -52,3 +52,10 @@ This program uses Jasmine for testing and Karma for test coverage.
      '13/01/2012 || 2000.00 || || 3000.00',
      '10/01/2012 || 1000.00 || || 1000.00
 ```
+
+## Approach 
+
+I began this task by creating an Account class that would contain all of the methods for depositing, withdrawing and printing Statements. I used TDD to get the basic functionality in place and once I had the statement printing out I set about refactoring the code. I extracted the transaction details to be contained within a separate Transaction class.  
+I then focussed on reducing the complexity of my methods by creating helpers. These were mainly used for formatting to ensure the output would appear correctly.  
+Finally, I wrote a feature test to ensure the acceptance criteria had been met. 
+I used the Jasmine testing library and Karma to view my testing coverage. I also used ESLint to help with formatting the code. 

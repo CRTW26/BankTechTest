@@ -56,15 +56,15 @@ class Account {
   }
 
   _formatStatement() {
-    const output = ['date  ||  credit  ||  debit ||  balance'];
+    const statementArray = ['date  ||  credit  ||  debit ||  balance'];
     for (let i = this.transactionHistory.length - 1; i >= 0; i--) {
       if (this.transactionHistory[i].type === 'Deposit') {
-        output.push(this._formatDeposit(this.transactionHistory[i]));
+        statementArray.push(this._formatDeposit(this.transactionHistory[i]));
       } else {
-        output.push(this._formatWithdrawal(this.transactionHistory[i]));
+        statementArray.push(this._formatWithdrawal(this.transactionHistory[i]));
       }
     }
-    return output;
+    return statementArray;
   }
 
   _formatDeposit(deposit) {
