@@ -1,0 +1,21 @@
+{
+  "name": "bankTechTest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "jasmine-core": "^2.5.2",
+    "karma": "^5.2.3",
+    "karma-coverage": "^2.0.3",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-chrome-launcher": "^2.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
