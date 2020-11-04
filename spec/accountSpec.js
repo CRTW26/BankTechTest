@@ -11,31 +11,31 @@ describe('Account', function() {
   });
 
   it('can deposit into account', function() {
-    createDeposit();
+    account.deposit(10.00);
     expect(account.showBalance()).toEqual('10.00');
   });
 
   it('can withdraw from the account', function() {
-    createDeposit();
+    account.deposit(10.00);
     account.withdraw(5.00);
     expect(account.showBalance()).toBe('5.00');
   });
 
   it('calls .createTransaction to store details of transaction when deposit is made', function() {
     spyOn(account, '_createTransaction');
-    createDeposit();
+    account.deposit(10.00);
     expect(account._createTransaction).toHaveBeenCalled();
   });
 
   it('stores a history of previous transactions', function() {
-    createDeposit();
+    account.deposit(10.00);
     expect(account.transactionHistory.length).toEqual(1);
   });
   
   it('prints formatted statement to console', function() {
     spyOn(console, 'log')
-    createDeposit();
-    createDeposit();
+    account.deposit(10.00);
+    account.deposit(10.00);
     account.printStatement();
     expect(console.log).toHaveBeenCalled();
   });

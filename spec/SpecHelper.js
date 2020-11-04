@@ -1,7 +1,3 @@
-function createDeposit() {
-  account.deposit(10.00);
-}
-
 class transactionDouble {
   constructor(amount, type, balance) {
     this.date = new Date().toLocaleDateString();
