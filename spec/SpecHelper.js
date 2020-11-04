@@ -1,4 +1,4 @@
-class transactionDouble {
+class TransactionDouble {
   constructor(amount, type, balance) {
     this.date = new Date().toLocaleDateString();
     this.type = type;
@@ -7,7 +7,7 @@ class transactionDouble {
   }
 }
 
-class formatterDouble {
+class FormatterDouble {
   formatStatement(transactionHistory){
     return { balance: '10.00' }; //returning something more like actual output
   }

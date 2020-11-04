@@ -3,7 +3,7 @@ describe('Account', function() {
   beforeEach(function() {
     let today = new Date(2020, 10, 02);
     jasmine.clock().mockDate(today);
-    account = new Account(transactionDouble, formatterDouble);
+    account = new Account(TransactionDouble, FormatterDouble);
   });
 
   it('has a balance of 0.00', function() {
