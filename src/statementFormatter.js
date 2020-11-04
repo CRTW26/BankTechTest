@@ -1,7 +1,4 @@
 class StatementFormatter {
-  constructor() {
-    this.formattedStatement;
-  }
   
   formatStatement(transactionHistory) {
     const statementArray = ['date  ||  credit  ||  debit ||  balance'];
@@ -12,7 +9,6 @@ class StatementFormatter {
         statementArray.push(this._formatWithdrawal(transactionHistory[i]));
       }
     }
-    this.formattedStatement = statementArray;
     return statementArray;
   }
 
