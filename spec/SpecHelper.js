@@ -6,3 +6,9 @@ class transactionDouble {
     this.balance = balance.toFixed(2);
   }
 }
+
+class formatterDouble {
+  formatStatement(transactionHistory){
+    return { balance: '10.00' }; //returning something more like actual output
+  }
+}

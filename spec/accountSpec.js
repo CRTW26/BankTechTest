@@ -3,7 +3,7 @@ describe('Account', function() {
   beforeEach(function() {
     let today = new Date(2020, 10, 02);
     jasmine.clock().mockDate(today);
-    account = new Account(transactionDouble);
+    account = new Account(transactionDouble, formatterDouble);
   });
 
   it('has a balance of 0.00', function() {
@@ -28,16 +28,14 @@ describe('Account', function() {
   });
 
   it('stores a history of previous transactions', function() {
+    spyOn(account, '_generateStatement')
     account.deposit(10.00);
     expect(account.transactionHistory.length).toEqual(1);
   });
   
   it('prints formatted statement to console', function() {
-    spyOn(console, 'log')
     account.deposit(10.00);
-    account.deposit(10.00);
-    account.printStatement();
-    expect(console.log).toHaveBeenCalled();
+    expect(account.printStatement()).toEqual({ balance: '10.00' });
   });
 
   // Testing for invalid input
