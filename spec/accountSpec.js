@@ -35,7 +35,7 @@ describe('Account', function() {
   
   it('prints formatted statement to console', function() {
     account.deposit(10.00);
-    expect(account.printStatement()).toEqual({ balance: '10.00' });
+    expect(account.printStatement()).toEqual('02/11/2020 || || 10.00 || 10.00');
   });
 
   // Testing for invalid input

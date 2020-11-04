@@ -9,6 +9,6 @@ class TransactionDouble {
 
 class FormatterDouble {
   formatStatement(transactionHistory){
-    return { balance: '10.00' }; //returning something more like actual output
+    return '02/11/2020 || || 10.00 || 10.00'; 
   }
 }
